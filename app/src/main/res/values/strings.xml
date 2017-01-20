@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Labour Sewa</string>
+    <string name="english_lang">English</string>
+    <string name="hindi_lang">हिंदी</string>
+    <string name="qr_scan">Scan QR code</string>
+    <string name="manual_details">Enter Details</string>
 </resources>
