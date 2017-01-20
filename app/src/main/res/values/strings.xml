@@ -4,4 +4,9 @@
     <string name="hindi_lang">हिंदी</string>
     <string name="qr_scan">Scan QR code</string>
     <string name="manual_details">Enter Details</string>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 </resources>
