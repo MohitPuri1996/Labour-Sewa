@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.developers.laboursewa">
-
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:allowBackup="true"
@@ -21,7 +21,8 @@
         <activity android:name=".ChoiceActivity" />
         <activity android:name=".ScannerActivity" />
         <activity android:name=".ManualUserDetail" />
-        <activity android:name=".TabActivity"></activity>
+        <activity android:name=".SkillCategory"></activity>
+         <activity android:name=".TabActivity"></activity>
     </application>
 
 </manifest>
