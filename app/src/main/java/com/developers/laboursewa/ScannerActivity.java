@@ -165,6 +165,10 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
             if(r.equals("1")){
                 Toast.makeText(ScannerActivity.this,"User Successfully Registered",Toast.LENGTH_SHORT).show();
                 progress.cancel();
+                SharedPreferences preferences=ScannerActivity.this.getSharedPreferences("MyPrefs",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor=preferences.edit();
+                editor.putInt("reg",1);
+                editor.commit();
                 Intent intent=new Intent(ScannerActivity.this,SkillCategory.class);
                 startActivity(intent);
             }

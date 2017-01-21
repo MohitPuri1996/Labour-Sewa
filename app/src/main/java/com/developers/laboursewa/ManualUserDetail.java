@@ -174,6 +174,10 @@ public class ManualUserDetail extends AppCompatActivity {
                 Log.d("TAG","sca"+r);
                 Toast.makeText(ManualUserDetail.this,"User Succsessfully Registered!!",Toast.LENGTH_SHORT).show();
                 progress.cancel();
+                SharedPreferences preferences=ManualUserDetail.this.getSharedPreferences("MyPrefs",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor=preferences.edit();
+                editor.putInt("reg",1);
+                editor.commit();
                 Intent intent=new Intent(ManualUserDetail.this,SkillCategory.class);
                 startActivity(intent);
             }
