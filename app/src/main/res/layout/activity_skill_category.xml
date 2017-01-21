@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:padding="8dp"
     tools:context="com.developers.laboursewa.SkillCategory">
 
     <GridView
@@ -19,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@+id/add_job"
         android:text="Enter Your Category"/>
 

@@ -3,4 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <!--
+    2 numbers behind the hexa code defines the opacity , here 60 defines opacity.
+    REFERENCE : http://www.binaryhexconverter.com/decimal-to-hex-converter
+    -->
+    <color name="colorAccentTint">#60FF4081</color>
+    <color name="white">#FFFFFF</color>
+
+    <!--MovieDetail colors-->
+    <color name="mdPrimary">#EF5350</color>
+    <color name="mdPrimaryDark">#F44336</color>
+    <color name="mdAccent">#40C4FF</color>
 </resources>
