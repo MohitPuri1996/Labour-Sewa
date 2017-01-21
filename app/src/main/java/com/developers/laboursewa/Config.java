@@ -5,7 +5,7 @@ package com.developers.laboursewa;
  */
 
 public class Config {
-    public static final String DEVELOPER_KEY = "AIzaSyABYoczeHg4XABx_jMRfv-CqmA2YMsIY4A";
+    public static final String DEVELOPER_KEY = "AIzaSyBa1MI1xC8lYMPHUv9KGVDrzYsxqwA2YzE";
     // YouTube video id
     public static final String YOUTUBE_VIDEO_CODE = "_oEA18Y8gM0";
     //https://www.youtube.com/watch?v=LTDQwMCY5k8
