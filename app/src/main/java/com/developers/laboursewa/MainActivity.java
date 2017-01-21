@@ -39,10 +39,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "English", Toast.LENGTH_SHORT).show();
                         SharedPreferences preferences= MainActivity.this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         r =preferences.getInt("reg",0);
-                        if(r==1){
-                            Intent intent=new Intent(MainActivity.this,TabActivity.class);
-                            startActivity(intent);
-                        }
+                        System.out.println("COOL"+r);
                         break;
                     case R.id.hindi:
                         sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -59,8 +56,14 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 dialog.dismiss();
-                Intent in = new Intent(MainActivity.this,ChoiceActivity.class);
-                startActivity(in);
+                if(r==1){
+                    Intent intent=new Intent(MainActivity.this,TabActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Intent in = new Intent(MainActivity.this, ChoiceActivity.class);
+                    startActivity(in);
+                }
             }
         });
         dialog.show();

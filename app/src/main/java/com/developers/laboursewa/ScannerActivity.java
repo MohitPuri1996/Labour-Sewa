@@ -47,7 +47,6 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
     @Override
     public void handleResult(Result result) {
         Log.d("ScannerActivity",result.getText());
-        Toast.makeText(this,""+result.getText(),Toast.LENGTH_SHORT).show();
         parseDetails(result);
         mScannerView.resumeCameraPreview(this);
     }
@@ -70,7 +69,6 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
             String loc=line.getAttribute("loc");
             String state=line.getAttribute("state");
             String pc=line.getAttribute("pc");
-            Toast.makeText(ScannerActivity.this,uid+" "+name,Toast.LENGTH_SHORT).show();
             SharedPreferences preferences=this.getSharedPreferences("MyPrefs",Context.MODE_PRIVATE);
             SharedPreferences.Editor editor=preferences.edit();
             editor.putString("pincode",pc);
@@ -128,7 +126,6 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
                 jsonObject.put("loc",loc);
                 jsonObject.put("state",state);
                 jsonObject.put("pc",pc);
-                Toast.makeText(ScannerActivity.this,""+jsonObject,Toast.LENGTH_SHORT).show();
                 URL url = new URL("https://6824f751.ngrok.io/save-a-user"); //Enter URL here
                 HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
                 httpURLConnection.setDoOutput(true);
