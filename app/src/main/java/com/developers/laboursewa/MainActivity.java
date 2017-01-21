@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                         editor.putString("language","0");
                         editor.apply();
 
-                        Toast.makeText(MainActivity.this, "Engkusg", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "English", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.hindi:
                         sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                         editor.putString("language","1");
                         editor.apply();
 
-                        Toast.makeText(MainActivity.this, "HINID", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "HINDI", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 dialog.dismiss();
