@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:ems="10"
-                android:hint="Street: A-5, Kalindi Kunj"
+                android:hint="House: A-5"
                 android:id="@+id/street" />
         </android.support.design.widget.TextInputLayout>
 
@@ -123,8 +123,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:id="@+id/city"
-                android:hint="City: New Delhi"
+                android:id="@+id/loc"
+                android:hint="loc:Pitampura"
                 />
         </android.support.design.widget.TextInputLayout>
 
