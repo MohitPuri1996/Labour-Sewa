@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:overrideLibrary="android.support.v17.leanback"
     android:id="@+id/activity_skill_category"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="com.developers.laboursewa.SkillCategory">
 
-    <GridView
-        android:id="@+id/gridview"
+
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9"
-        android:numColumns="1"
-        xmlns:android="http://schemas.android.com/apk/res/android" />
+        android:layout_weight="9">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+            <GridView
+                android:id="@+id/gridview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="1"
+                xmlns:android="http://schemas.android.com/apk/res/android" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="0dp"

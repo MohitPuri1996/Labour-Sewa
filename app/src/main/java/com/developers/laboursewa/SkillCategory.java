@@ -7,10 +7,12 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ListAdapter;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -32,13 +34,7 @@ public class SkillCategory extends AppCompatActivity {
         setContentView(R.layout.activity_skill_category);
         gridView = (GridView) findViewById(R.id.gridview);
 
-        otherJob = (Button) findViewById(R.id.add_job);
-        otherJob.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addJob();
-            }
-        });
+        setTitle("Select Your Job");
 
         skills = new ArrayList<>();
         skills.add("Carpentry");
@@ -49,8 +45,40 @@ public class SkillCategory extends AppCompatActivity {
         skills.add("Brick Layer");
         skills.add("Electrician");
         skills.add("Concrete");
+
+        gridView = (GridView) findViewById(R.id.gridview);
+        gridView.setNumColumns(skills.size());
         customSkillAdapter = new CustomSkillAdapter(this, skills);
         gridView.setAdapter(customSkillAdapter);
+        setDynamicWidth(gridView);
+
+
+        otherJob = (Button) findViewById(R.id.add_job);
+        otherJob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addJob();
+            }
+        });
+
+
+
+    }
+
+    private void setDynamicWidth(GridView gridView) {
+        ListAdapter gridViewAdapter = gridView.getAdapter();
+        if (gridViewAdapter == null) {
+            return;
+        }
+        int totalWidth;
+        int items = gridViewAdapter.getCount();
+        View listItem = gridViewAdapter.getView(0, null, gridView);
+        listItem.measure(0, 0);
+        totalWidth = 1100;
+        totalWidth = totalWidth*items;
+        ViewGroup.LayoutParams params = gridView.getLayoutParams();
+        params.width = totalWidth;
+        gridView.setLayoutParams(params);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
