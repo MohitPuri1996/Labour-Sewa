@@ -162,7 +162,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
             super.onPostExecute(res);
             Log.d("TAG","sca"+res);
             String r=res.trim();
-            if(r.equals("WOHO!")){
+            if(r.equals("1")){
                 Toast.makeText(ScannerActivity.this,"User Successfully Registered",Toast.LENGTH_SHORT).show();
                 progress.cancel();
                 Intent intent=new Intent(ScannerActivity.this,SkillCategory.class);
