@@ -1,21 +1,29 @@
 package com.developers.laboursewa;
 
 import android.app.DatePickerDialog;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import org.json.JSONObject;
+
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class ManualUserDetail extends AppCompatActivity {
 
-    EditText dob;
+    EditText dob,uid,name,street,pincode,city,state;
+    Spinner spinner;
     Calendar myCalendar;
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
@@ -29,15 +37,23 @@ public class ManualUserDetail extends AppCompatActivity {
         }
 
     };
+    Button submit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manual_user_detail);
 
+        dob = (EditText) findViewById(R.id.dob);
+        uid = (EditText) findViewById(R.id.uid);
+        name = (EditText) findViewById(R.id.name);
+        spinner = (Spinner) findViewById(R.id.spinner);
+        street = (EditText) findViewById(R.id.street);
+        pincode = (EditText) findViewById(R.id.pincode);
+        city = (EditText) findViewById(R.id.city);
+        state = (EditText) findViewById(R.id.state);
+
         myCalendar = Calendar.getInstance();
 
-
-        dob = (EditText) findViewById(R.id.dob);
         dob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,7 +63,7 @@ public class ManualUserDetail extends AppCompatActivity {
             }
         });
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.gender, android.R.layout.simple_spinner_item);
@@ -55,6 +71,15 @@ public class ManualUserDetail extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
     private void updateLabel() {
         String myFormat = "dd/MM/yy"; //In which you need put here
