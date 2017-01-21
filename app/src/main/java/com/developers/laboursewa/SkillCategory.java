@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -50,6 +51,17 @@ public class SkillCategory extends AppCompatActivity {
         skills.add("Concrete");
         customSkillAdapter = new CustomSkillAdapter(this, skills);
         gridView.setAdapter(customSkillAdapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                SharedPreferences preferences=SkillCategory.this.getSharedPreferences("MyPrefs",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor=preferences.edit();
+                editor.putInt("number",i);
+                editor.commit();
+                Intent intent=new Intent(SkillCategory.this,TabActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void addJob(){

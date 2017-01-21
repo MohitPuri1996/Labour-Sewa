@@ -59,14 +59,13 @@ public class CustomSkillAdapter extends BaseAdapter {
                 break;
             case "Fitter": imageView.setImageResource(R.drawable.fitter);
                 break;
-            case "Plumber": imageView.setImageResource(R.drawable.plumber);
+            case "Plumber":imageView.setImageResource(R.drawable.plumber);
                 break;
-            case "Brick Layer": imageView.setImageResource(R.drawable.bricklaying);
+            case "Brick Layer":imageView.setImageResource(R.drawable.bricklaying);
                 break;
-            case "Electrician": imageView.setImageResource(R.drawable.electrician);
+            case "Electrician":imageView.setImageResource(R.drawable.electrician);
                 break;
-            case "Concrete": imageView.setImageResource(R.drawable.concrete
-            );
+            case "Concrete":imageView.setImageResource(R.drawable.concrete);
                 break;
 
         }

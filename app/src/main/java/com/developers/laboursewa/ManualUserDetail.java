@@ -2,6 +2,9 @@ package com.developers.laboursewa;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -87,6 +90,11 @@ public class ManualUserDetail extends AppCompatActivity {
                 String loca=loc.getText().toString();
                 String st=state.getText().toString();
                 String yob=dob.getText().toString();
+                SharedPreferences preferences=ManualUserDetail.this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor=preferences.edit();
+                editor.putString("pincode",pincode);
+                editor.commit();
+
                 new Submitting().execute(ui,na,gender,yob,ho,loca,st,pincode);
             }
         });
@@ -161,10 +169,13 @@ public class ManualUserDetail extends AppCompatActivity {
         protected void onPostExecute(String res) {
             super.onPostExecute(res);
             String r=res.trim();
-            if(r.equals("WOHO!")){
+            Log.d("TAG","scaaaaaaaaaaaaaaaaaaa"+r);
+            if(r.equals("1")){
                 Log.d("TAG","sca"+r);
                 Toast.makeText(ManualUserDetail.this,"User Succsessfully Registered!!",Toast.LENGTH_SHORT).show();
                 progress.cancel();
+                Intent intent=new Intent(ManualUserDetail.this,SkillCategory.class);
+                startActivity(intent);
             }
 
         }

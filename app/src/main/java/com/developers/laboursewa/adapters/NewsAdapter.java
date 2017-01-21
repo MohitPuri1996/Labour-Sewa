@@ -1,6 +1,8 @@
 package com.developers.laboursewa.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,7 @@ public class NewsAdapter extends BaseAdapter {
     Context context;
     ArrayList<String> news;
     ArrayList<String> links;
+    String lin;
     public NewsAdapter(Context context,ArrayList<String> news,ArrayList<String> links){
         this.context=context;
         this.news=news;
@@ -46,7 +49,16 @@ public class NewsAdapter extends BaseAdapter {
         TextView title= (TextView) view.findViewById(R.id.newstitle);
         TextView tags= (TextView) view.findViewById(R.id.source);
         String t=news.get(i);
-        String lin=links.get(i);
+        lin=links.get(i);
+        tags.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(lin));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setPackage("com.android.chrome");
+                context.startActivity(intent);
+            }
+        });
         title.setText(t);
         tags.setText(lin);
         return view;

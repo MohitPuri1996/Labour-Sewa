@@ -1,6 +1,9 @@
 package com.developers.laboursewa;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -68,6 +71,14 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
             String state=line.getAttribute("state");
             String pc=line.getAttribute("pc");
             Toast.makeText(ScannerActivity.this,uid+" "+name,Toast.LENGTH_SHORT).show();
+            SharedPreferences preferences=this.getSharedPreferences("MyPrefs",Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor=preferences.edit();
+            editor.putString("pincode",pc);
+            editor.commit();
+            SharedPreferences pref=this.getSharedPreferences("MyPrefs",Context.MODE_PRIVATE);
+            SharedPreferences.Editor ed=pref.edit();
+            editor.putString("pincode",pc);
+            editor.commit();
             new Submitting().execute(uid,name,gender,yob,house,loc,state,pc);
         } catch (Exception e) {
             e.printStackTrace();
@@ -154,6 +165,8 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
             if(r.equals("WOHO!")){
                 Toast.makeText(ScannerActivity.this,"User Successfully Registered",Toast.LENGTH_SHORT).show();
                 progress.cancel();
+                Intent intent=new Intent(ScannerActivity.this,SkillCategory.class);
+                startActivity(intent);
             }
         }
     }

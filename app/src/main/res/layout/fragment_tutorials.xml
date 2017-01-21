@@ -4,8 +4,35 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.developers.laboursewa.fragments.Tutorials">
-<ListView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/tutorials"/>
+    <android.support.v7.widget.CardView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/tools"
+        android:background="#F3E5F5"
+        app:cardCornerRadius="3dp"
+        card_view:contentPadding="10dp"
+        app:cardUseCompatPadding="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/vidtitle"
+                android:textColor="#000"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/link"
+                android:textSize="16dp"
+                android:textColor="#000"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>
